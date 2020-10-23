@@ -16,9 +16,14 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "refactoring-tool-l365.action-tooltip",
-				"title": "L365: Set action tooltips for the current workspace"
+				"command": "refactoring-tool-l365.set-action-tooltip-doc",
+				"title": "L365: Set action tooltips"
+			},
+			{
+				"command": "refactoring-tool-l365.set-action-tooltip-worksp",
+				"title": "L365: Set action tooltips (workspace)"
 			}
+			
 		]
 	},
 	"scripts": {
