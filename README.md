@@ -1,6 +1,6 @@
-# refactoring-tool-l365 README
+# L365.RefactoringTool 
 
-This is the README for your extension "refactoring-tool-l365". After writing up a brief description, we recommend including the following sections.
+L365.RefactoringTool
 
 ## Features
 
