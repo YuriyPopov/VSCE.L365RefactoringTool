@@ -22,8 +22,15 @@
 			{
 				"command": "refactoring-tool-l365.set-action-tooltip-worksp",
 				"title": "L365: Set action tooltips (workspace)"
+			},
+			{
+				"command": "refactoring-tool-l365.set-field-tooltip-doc",
+				"title": "L365: Set field tooltips"
+			},
+			{
+				"command": "refactoring-tool-l365.set-field-tooltip-worksp",
+				"title": "L365: Set field tooltips (workspace)"
 			}
-			
 		]
 	},
 	"scripts": {
