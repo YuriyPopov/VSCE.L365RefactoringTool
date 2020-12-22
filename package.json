@@ -1,53 +1,52 @@
 {
-	"name": "refactoring-tool-l365",
-	"displayName": "Refactoring Tool L365",
-	"description": "A VS Code extension for performing refactoring for L365 project",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.50.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onLanguage:al"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "refactoring-tool-l365.set-action-tooltip-doc",
-				"title": "L365: Set action tooltips"
-			},
-			{
-				"command": "refactoring-tool-l365.set-action-tooltip-worksp",
-				"title": "L365: Set action tooltips (workspace)"
-			},
-			{
-				"command": "refactoring-tool-l365.set-field-tooltip-doc",
-				"title": "L365: Set field tooltips"
-			},
-			{
-				"command": "refactoring-tool-l365.set-field-tooltip-worksp",
-				"title": "L365: Set field tooltips (workspace)"
-			}
-		]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.50.0",
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.2",
-		"@types/node": "^13.11.0",
-		"eslint": "^6.8.0",
-		"glob": "^7.1.6",
-		"mocha": "^7.1.2",
-		"typescript": "^3.8.3",
-		"vscode-test": "^1.3.0"
-	},
-	"publisher": "ypo"
+    "name": "abakion-refactoring-tool",
+    "displayName": "Abakion Refactoring Tool",
+    "description": "Abakion Refactoring Tool VS Code extension",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:al"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [{
+                "command": "abakion-refactoring-tool.set-action-tooltip-doc",
+                "title": "Abakion Refactoring Tool: Set action tooltips"
+            },
+            {
+                "command": "abakion-refactoring-tool.set-action-tooltip-worksp",
+                "title": "Abakion Refactoring Tool: Set action tooltips (workspace)"
+            },
+            {
+                "command": "abakion-refactoring-tool.set-field-tooltip-doc",
+                "title": "Abakion Refactoring Tool: Set field tooltips"
+            },
+            {
+                "command": "abakion-refactoring-tool.set-field-tooltip-worksp",
+                "title": "Abakion Refactoring Tool: Set field tooltips (workspace)"
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.50.0",
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.11.0",
+        "eslint": "^6.8.0",
+        "glob": "^7.1.6",
+        "mocha": "^7.1.2",
+        "typescript": "^3.8.3",
+        "vscode-test": "^1.3.0"
+    },
+    "publisher": "ypo"
 }
