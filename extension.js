@@ -51,6 +51,24 @@ function applyFieldTooltip(docTxt) {
     return { txt: txt, modified: modified };
 }
 
+function applyFieldDataClassification(docTxt) {
+
+    let modified = false;
+
+    let txt = docTxt.replace(/\bfield\b\s*\((?:\s*\d+\s*;)(?:\s*(?:(?:"(?:(?:"")|[^"])*")|[_0-9a-zA-Z]\w*))\s*;(?:\s*(\w+\.)?(?:(?:"(?:(?:"")|[^"])*")|[_0-9a-zA-Z]\w*))(?:\[\d*\])?\s*\)[\n\s]*\{(?:(?:[^}]*)\n*)*?\}/gmi, fragment => {
+
+        let indent = fragment.match(/^sss\s*(?=(Access|AccessByPermission|AutoFormatExpression|AutoFormatType|AutoIncrement|BlankNumbers|BlankZero|CalcFormula|CaptionClass|CaptionML|CharAllowed|ClosingDates|Compressed|DateFormula|DecimalPlaces|Description|Editable|Enabled|ExtendedDatatype|ExternalAccess|ExternalName|ExternalType|FieldClass|InitValue|MaxValue|MinValue|NotBlank|Numeric|ObsoleteReason|ObsoleteState|ObsoleteTag|OptionCaption|OptionCaptionML|OptionMembers|OptionOrdinalValues|SignDisplacement|SqlDataType|SqlTimestamp|Subtype|TableRelation|TestTableRelation|ValidateTableRelation|ValuesAllowed|Width|Caption|DataClassification)\s*=)/mi);
+
+        return fragment.replace(/(?:(?:[\s\n]*\b(?:Access|AccessByPermission|AutoFormatExpression|AutoFormatType|AutoIncrement|BlankNumbers|BlankZero|CalcFormula|CaptionClass|CaptionML|CharAllowed|ClosingDates|Compressed|DateFormula|DecimalPlaces|Description|Editable|Enabled|ExtendedDatatype|ExternalAccess|ExternalName|ExternalType|FieldClass|InitValue|MaxValue|MinValue|NotBlank|Numeric|ObsoleteReason|ObsoleteState|ObsoleteTag|OptionCaption|OptionCaptionML|OptionMembers|OptionOrdinalValues|SignDisplacement|SqlDataType|SqlTimestamp|Subtype|TableRelation|TestTableRelation|ValidateTableRelation|ValuesAllowed|Width|Caption|DataClassification)\b\s*=[^;]+;(?:\s*\/\/.*)?)+)|\{(?=[\s\n]*\})/mi, fragment => {
+            let replace = !fragment.match(/\bDataClassification[^;]+;/gmi) && !fragment.match(/FlowField|FlowFilter/gmi);
+            modified = modified || replace;
+            return ((replace) ? `${fragment}${((indent) ? indent[0] : '\n\t\t\t')}DataClassification = CustomerContent;` : fragment)
+        });
+    });
+
+    return { txt: txt, modified: modified };
+}
+
 function processCurrDocument(replacer) {
     let editor = vscode.window.activeTextEditor;
 
@@ -96,6 +114,12 @@ function activate(context) {
     context.subscriptions.push(disposable);
 
     disposable = vscode.commands.registerCommand('abakion-refactoring-tool.set-field-tooltip-worksp', () => { processCurrWorkspace(applyFieldTooltip); });
+    context.subscriptions.push(disposable);
+
+    disposable = vscode.commands.registerCommand('abakion-refactoring-tool.set-field-dataclassification-doc', () => { processCurrDocument(applyFieldDataClassification); });
+    context.subscriptions.push(disposable);
+
+    disposable = vscode.commands.registerCommand('abakion-refactoring-tool.set-field-dataclassification-worksp', () => { processCurrWorkspace(applyFieldDataClassification); });
     context.subscriptions.push(disposable);
 }
 

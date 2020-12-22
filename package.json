@@ -29,6 +29,14 @@
             {
                 "command": "abakion-refactoring-tool.set-field-tooltip-worksp",
                 "title": "Abakion Refactoring Tool: Set field tooltips (workspace)"
+            },
+            {
+                "command": "abakion-refactoring-tool.set-field-dataclassification-doc",
+                "title": "Abakion Refactoring Tool: Set table DataClassification field properties"
+            },
+            {
+                "command": "abakion-refactoring-tool.set-field-dataclassification-worksp",
+                "title": "Abakion Refactoring Tool: Set table DataClassification field properties (workspace)"
             }
         ]
     },
